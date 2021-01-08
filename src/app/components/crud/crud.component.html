@@ -1,0 +1,73 @@
+<div style="text-align: center;">
+
+    <h2>Sistema de Estudiantes</h2>
+
+        
+          <div class="botones">
+            <!-- <button type="button" class="btn btn-success" (click)="nuevoEstudiante(content)">Nuevo estudiante</button> -->
+            <button type="button" class="btn btn-secondary" [routerLink]="['login']">Logout</button>
+           </div>
+        
+    
+  
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-primary">
+          <th>ID</th>
+          <th>Nombre</th>
+        <th>Apellido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table" *ngFor="let item of collection.data | paginate: config">
+          <td >{{item.id}}</td>
+          <td >{{item.nombre}}</td>
+          <td >{{item.apellido}}</td>
+          <td>
+            <button type="button" class="btn btn-danger"(click)="eliminar(item)">Eliminar</button>
+            <button type="button" class="btn btn-primary"(click)="editarEstudiante(content,item)">Editar</button>
+          </td>
+            
+      </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  
+  <!-- Todo esto es el html del Modal (ventana emergente) -->
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Crear/Actualizar Estudiante</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <form [formGroup]="estudianteForm">
+              <div class="form-group">
+                <strong><label for="">ID</label></strong>
+                <input type="number" formControlName="id" class="form-control">
+              </div>
+  
+              <div class="form-group">
+                <strong><label for="">Nombre</label></strong>
+                <input type="text" formControlName="nombre" class="form-control">
+              </div>
+   
+              <div class="from-group">
+                <strong><label for="">Apellido</label></strong>
+                <input type="text" formControlName="apellido" class="form-control">
+              </div>
+   
+            </form>
+           </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button *ngIf="updSave==false" type="button" class="btn btn-outline-dark" (click)="guardar()">Guardar</button>
+        <button *ngIf="updSave==true" type="button" class="btn btn-outline-dark" (click)="actualizar()">Actualizar</button>
+      </div>
+    </ng-template>
+  
+  </div>

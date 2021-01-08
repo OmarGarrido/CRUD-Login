@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "crud-firebase-4c687": {
+      "hosting": {
+        "CRUD": [
+          "crud-firebase-4c687"
+        ]
+      }
+    }
+  }
+}
