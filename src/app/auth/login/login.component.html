@@ -14,6 +14,10 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
                 </form>
+                <div class="form-group">
+                    <button class="btn btn-block btn-lg btn-google mt-3"
+                    (click)="onGoogleLogin()">Google</button>
+                </div>
                 <div class="form-group mt-3">
                     <p>Crea una Cuenta <a [routerLink]="['/register']"> Registrar</a></p>
                 </div>

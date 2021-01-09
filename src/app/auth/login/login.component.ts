@@ -37,4 +37,15 @@ loginForm=new FormGroup({
     }    
   }
 
+  onGoogleLogin(){
+    //to then services
+    try{
+      this.authServ.loginGoogle();
+    }
+    catch(error){
+      console.log(error);
+    }
+    
+  }
+
 }

@@ -1,15 +1,29 @@
 import { Injectable } from '@angular/core';
 import { first } from 'rxjs/operators';
-import { auth } from 'firebase-tools';
-import { User } from 'firebase-tools';
+import firebase from "firebase/app";
 import { AngularFireAuth } from '@angular/fire/auth'
+
+// Add the Firebase services that you want to use
+import 'firebase/auth'
 
 @Injectable()
 export class AuthService {
-  public user: User;
+
   constructor(
     public afAuth: AngularFireAuth
   ) { }
+
+
+
+  async loginGoogle() {
+    try {
+      //sintaxys nueva descubierta por mi
+       this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      }
+    catch (error) {
+      console.log(error);
+    }
+  }
 
   async login(email: string, password: string) {
     try {

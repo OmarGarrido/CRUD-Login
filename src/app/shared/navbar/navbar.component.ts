@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
+    //codigo no optimizado para navegacion 
     // console.log('Navbar');
     // this.user = await this.authServ.getCurrentUser();
     // if (this.user) {

@@ -11,7 +11,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 //inmport para logica de formularios
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 //inizializar conexion con firebase
-import { AngularFireModule } from '@angular/fire';
+import { AngularFireModule, FirebaseApp } from '@angular/fire';
 //
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
